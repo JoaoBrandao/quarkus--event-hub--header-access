@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "3b6cd496-2698-441d-b3e7-3892b9dd239c",
+		"name": "Azure Event Hub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20168525"
+	},
+	"item": [
+		{
+			"name": "Send Event",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "device-id",
+						"value": "SN004",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "<<ADD TOKEN>>",
+						"type": "text"
+					},
+					{
+						"key": "eventType",
+						"value": "1045",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"e170921a-d9dc-44e6-9279-7228f32d17df\",\n    \"message\": \"Hi there\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://<<EVENT_HUB_HOST_NAME>>/<<TOPIC>>/messages",
+					"protocol": "https",
+					"host": [
+						"<<EVENT_HUB_HOST_NAME>>"
+					],
+					"path": [
+						"<<TOPIC>>",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
